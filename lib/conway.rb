@@ -26,3 +26,23 @@ class Game
       []
     ]
   end
+
+  def check_one_space(y,x)
+    if @board[y][x] && (y >= 0 && x >=0)
+      true
+    else
+      false
+    end
+  end
+
+
+
+  def eval_space(y, x)
+    neighbors = 0
+    @space_checks.each do |e|
+      if check_one_space(y + e[0], x + e[1]) == true
+        neighbors += 1
+      end
+    end
+    neighbors
+  end
